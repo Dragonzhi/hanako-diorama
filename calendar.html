@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛事日历 · Hanako 箱庭</title>
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --card: #fbf8f2;
+    --ink: #26221c;
+    --ink-soft: #5c564c;
+    --line: #c9c2b4;
+    --red: #8b2c1f;
+    --blue: #2f5d8a;
+    --green: #4a6b4a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, serif;
+    background: var(--paper); color: var(--ink); line-height: 1.75;
+    padding-bottom: 50px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  .eyebrow {
+    font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px solid var(--line); padding: 10px 0 8px;
+  }
+  .masthead { text-align: center; padding: 26px 0 20px; }
+  .masthead h1 {
+    font-size: 40px; font-weight: 800; color: var(--red);
+    letter-spacing: 12px; line-height: 1.15; text-indent: 12px;
+  }
+  .masthead .sub {
+    margin-top: 8px; font-size: 12px; color: var(--ink-soft);
+    letter-spacing: 6px; text-indent: 6px;
+  }
+  .rule-double {
+    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink);
+    height: 5px; margin-bottom: 22px;
+  }
+  .notice {
+    border: 1px solid var(--line); background: var(--card);
+    font-size: 12.5px; color: var(--ink-soft); padding: 12px 18px; margin-bottom: 8px;
+  }
+
+  .sec-title {
+    display: flex; align-items: center; gap: 10px;
+    margin: 28px 0 14px; font-size: 19px; font-weight: 700; letter-spacing: 3px;
+  }
+  .sec-title::before { content: "■"; color: var(--red); font-size: 14px; }
+  .sec-title .en {
+    font-size: 10.5px; font-weight: 400; color: var(--ink-soft);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .sec-title .rule { flex: 1; border-top: 1px solid var(--line); }
+
+  .event {
+    display: flex; gap: 16px; padding: 14px 6px; border-bottom: 1px dotted var(--line);
+    align-items: flex-start;
+  }
+  .event .when {
+    min-width: 130px; font-size: 12.5px; font-weight: 700; color: var(--ink);
+    letter-spacing: 1px; padding-top: 2px; font-variant-numeric: tabular-nums;
+  }
+  .event .when .sub { display: block; font-size: 11px; font-weight: 400; color: var(--ink-soft); }
+  .event .info { flex: 1; min-width: 0; }
+  .event .name { font-size: 15.5px; font-weight: 700; }
+  .event .name a { color: var(--ink); text-decoration: none; }
+  .event .name a:hover { color: var(--red); }
+  .event .desc { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+  .event .prize {
+    display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 700;
+    color: var(--red); border: 1px solid var(--red); border-radius: 999px;
+    padding: 1px 12px; letter-spacing: 1px;
+  }
+  .badges { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .badge { font-size: 10.5px; padding: 1px 9px; border-radius: 999px; letter-spacing: 1px; }
+  .b-cn { color: var(--red); border: 1px solid var(--red); }
+  .b-gl { color: var(--blue); border: 1px solid var(--blue); }
+  .b-on { color: var(--green); border: 1px solid var(--green); }
+  .b-off { color: var(--ink-soft); border: 1px solid var(--line); }
+  .b-stu { color: var(--blue); border: 1px solid var(--blue); }
+
+  .soon { background: rgba(139,44,31,.05); }
+
+  .back { display: inline-block; margin: 20px 0 0; font-size: 13px; color: var(--blue); text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .masthead h1 { font-size: 30px; letter-spacing: 8px; text-indent: 8px; }
+    .event { flex-direction: column; gap: 4px; }
+    .event .when { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">
+  <span>Hanako 箱庭 · 赛事日历</span>
+  <span>国内为主 · 奖金优先</span>
+  <span>错过报名是最亏的</span>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>赛事日历</h1>
+    <div class="sub">JAM CALENDAR · 国内篇</div>
+  </div>
+  <div class="rule-double"></div>
+
+  <div class="notice">
+    主收国内赛事，奖金信息以官方公布为准。国外赛事（GMTK、Ludum Dare、GGJ 全球站等）在 <a href="https://itch.io/jams/upcoming" style="color:#2f5d8a">itch.io 的 Jam 日历</a> 里都能查到，这里不再重复。发现新赛事随时告诉我，我来上墙。
+  </div>
+
+  <!-- ===== 近在眼前 ===== -->
+  <div class="sec-title">近在眼前 <span class="en">Urgent</span><span class="rule"></span></div>
+
+  <div class="event soon">
+    <div class="when">2026-08-15 截止<span class="sub">还有 10 天</span></div>
+    <div class="info">
+      <div class="name"><a href="https://gameinstitute.tencent.com/awards2026">GWB Game Awards 2026（腾讯国际）</a></div>
+      <div class="desc">面向全球独立开发者与学生；行业组、学生组各设 1 万美元现金奖。提交截止已延长至 8 月 15 日。作品可以是 2026 年发布或开发中的游戏</div>
+      <span class="prize">¥ 学生/行业组各 1 万美元</span>
+      <div class="badges"><span class="badge b-gl">国际</span><span class="badge b-stu">学生可投</span><span class="badge b-on">线上提交</span></div>
+    </div>
+  </div>
+
+  <div class="event soon">
+    <div class="when">2026-08-24 出题<span class="sub">报名筛选中</span></div>
+    <div class="info">
+      <div class="name"><a href="https://www.gcores.com/booom">BOOOM × DEOT 掌机创作（机核）</a></div>
+      <div class="desc">8 月 24 日公布主题，在 DEOT/GameShell 掌机上开发；报名筛选制，共 35 支队伍，入选邮寄开发机；9 月 21 日线下 BOOOM Party 收官</div>
+      <div class="badges"><span class="badge b-cn">国内</span><span class="badge b-off">掌机限定</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="when">报名中<span class="sub">4 月已启幕</span></div>
+    <div class="info">
+      <div class="name"><a href="https://gameinstitute.qq.com/awards2026">2026 腾讯游戏创作大赛</a></div>
+      <div class="desc">总奖金 401.1 万现金。主赛区：自由创意、AI 游戏、小红花游戏；另有和平精英绿洲启元（117 个奖项、40 万+ 奖池）、三角洲行动、元梦之星、洛克王国：世界赛区。开放 AI 工具参赛包与 CodeBuddy 百万 Credits 补贴</div>
+      <span class="prize">¥ 总奖金 401.1 万 · AI 赛道对味</span>
+      <div class="badges"><span class="badge b-cn">国内</span><span class="badge b-on">线上</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="when">报名中<span class="sub">截止待确认</span></div>
+    <div class="info">
+      <div class="name"><a href="https://indienova.com/indie-game-news/2026-cusga-submissions-open/">2026 CUSGA 第六届中国大学生游戏开发创作大赛</a></div>
+      <div class="desc">UGDAP 联合 CiGA、GGAC 主办，全球参赛人数最多的学生游戏赛事；入围团队登上决赛舞台向专业评委展示作品</div>
+      <div class="badges"><span class="badge b-cn">国内</span><span class="badge b-stu">大学生专属</span></div>
+    </div>
+  </div>
+
+  <!-- ===== 下半年 & 2027 ===== -->
+  <div class="sec-title">下半年 &amp; 2027 <span class="en">Next</span><span class="rule"></span></div>
+
+  <div class="event">
+    <div class="when">2026-11-21 ~ 22<span class="sub">WePlay 现场</span></div>
+    <div class="info">
+      <div class="name"><a href="https://www.ciga.me/">indiePlay 中国独立游戏大赛 2026</a></div>
+      <div class="desc">华语圈独立游戏年度评选，报名进行中；CiGA Game Jam 的优秀作品可进入「最佳 Game Jam」奖项并在 WePlay 入围区试玩。今年 WePlay 十周年，移至国家会展中心</div>
+      <div class="badges"><span class="badge b-cn">国内</span><span class="badge b-off">线下</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="when">2027-01-25 ~ 31<span class="sub">Prep Week 1/18-22</span></div>
+    <div class="info">
+      <div class="name">GGJ 2027 × CiGA 中国区</div>
+      <div class="desc">全球 48 小时创作节中国站；2026 年 15 城 26 站点、2300+ 开发者。1 月 24 日主题揭晓，报名走 Gmhub（中国区）与 globalgamejam.org（全球站）</div>
+      <div class="badges"><span class="badge b-cn">中国区</span><span class="badge b-off">线下为主</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="when">2027-07 前后<span class="sub">待官宣</span></div>
+    <div class="info">
+      <div class="name">CiGA Game Jam 2027</div>
+      <div class="desc">华语圈最大线下 Game Jam，2026 年为 7 月 3-5 日、12 城 20+ 站点、2000+ 开发者；2027 安排待官宣</div>
+      <div class="badges"><span class="badge b-cn">国内</span><span class="badge b-off">线下</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="when">不定期<span class="sub">留意机核</span></div>
+    <div class="info">
+      <div class="name"><a href="https://site.gcores.com/booom2026/">BOOOMJAM 游戏创作挑战（机核）</a></div>
+      <div class="desc">年度创作挑战 + 不定期特别回合（曾与保时捷联名设奖金）；社区奖项、学生专项奖、骁龙技术奖、机核发行奖；作品版权归创作者</div>
+      <div class="badges"><span class="badge b-cn">国内</span><span class="badge b-on">线上为主</span></div>
+    </div>
+  </div>
+
+  <a class="back" href="index.html">← 返回箱庭</a>
+</div>
+
+</body>
+</html>

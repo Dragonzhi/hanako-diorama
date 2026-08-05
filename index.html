@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanako 箱庭 · 2026-08-05</title>
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --card: #fbf8f2;
+    --ink: #26221c;
+    --ink-soft: #5c564c;
+    --line: #c9c2b4;
+    --red: #8b2c1f;
+    --blue: #2f5d8a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, serif;
+    background: var(--paper); color: var(--ink); line-height: 1.75;
+    padding-bottom: 50px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== 报眉 ===== */
+  .eyebrow {
+    font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px solid var(--line); padding: 10px 0 8px;
+  }
+
+  /* ===== 报头 ===== */
+  .masthead { text-align: center; padding: 30px 0 22px; }
+  .masthead h1 {
+    font-size: 52px; font-weight: 800; color: var(--red);
+    letter-spacing: 14px; line-height: 1.15; text-indent: 14px;
+  }
+  .masthead .sub {
+    margin-top: 8px; font-size: 12px; color: var(--ink-soft);
+    letter-spacing: 7px; text-indent: 7px;
+  }
+  .rule-double {
+    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink);
+    height: 5px; margin-bottom: 26px;
+  }
+
+  /* ===== 今日一言 ===== */
+  .daily {
+    text-align: center; padding: 10px 0 16px;
+    border-bottom: 1px solid var(--line); margin-bottom: 26px;
+  }
+  .daily .quote { font-size: 17px; letter-spacing: 2px; }
+  .daily .who { margin-top: 6px; font-size: 11.5px; color: var(--ink-soft); letter-spacing: 3px; }
+
+  /* ===== 菜单 ===== */
+  .menu { border: 1px solid var(--ink); padding: 6px 24px; }
+  .menu .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 12px 0 8px; border-bottom: 2px solid var(--ink);
+    font-size: 15px; font-weight: 700; letter-spacing: 3px;
+  }
+  .menu .head .en { font-size: 10.5px; font-weight: 400; color: var(--ink-soft); letter-spacing: 2px; }
+  .menu-item {
+    display: flex; align-items: baseline; gap: 16px;
+    padding: 15px 0; border-bottom: 1px dotted var(--line);
+    text-decoration: none; color: var(--ink);
+  }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item .no {
+    font-size: 13px; font-weight: 700; color: var(--red);
+    font-style: italic; min-width: 34px;
+  }
+  .menu-item .info { flex: 1; min-width: 0; }
+  .menu-item .t { font-size: 17px; font-weight: 700; letter-spacing: 1px; }
+  .menu-item .d { font-size: 12.5px; color: var(--ink-soft); }
+  .menu-item .arrow { font-size: 15px; color: var(--ink-soft); transition: transform .15s; }
+  .menu-item:hover .t { color: var(--red); }
+  .menu-item:hover .arrow { transform: translateX(4px); color: var(--red); }
+  .menu-item .state {
+    font-size: 10.5px; color: var(--ink-soft); border: 1px solid var(--line);
+    border-radius: 999px; padding: 1px 10px; white-space: nowrap;
+  }
+  .menu-item .state.live { color: var(--red); border-color: var(--red); }
+
+  /* ===== 底部 ===== */
+  .colophon {
+    margin-top: 30px; padding: 18px 0; text-align: center;
+    border-top: 2px solid var(--ink);
+  }
+  .colophon .end { font-size: 13px; letter-spacing: 6px; margin-bottom: 8px; }
+  .colophon .meta { font-size: 11.5px; color: var(--ink-soft); line-height: 2; }
+
+  @media (max-width: 560px) {
+    .masthead h1 { font-size: 36px; letter-spacing: 8px; text-indent: 8px; }
+    .daily .quote { font-size: 14.5px; }
+    .menu { padding: 4px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">
+  <span>Hanako 箱庭</span>
+  <span>2026年8月5日 · 星期三</span>
+  <span>出版地：腾讯云</span>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>Hanako 箱庭</h1>
+    <div class="sub">HANAKO'S DIORAMA · 每日一阅</div>
+  </div>
+  <div class="rule-double"></div>
+
+  <div class="daily">
+    <div class="quote">「当 13B 激活参数够用的时候，旗舰模型的护城河还剩多少。」</div>
+    <div class="who">— 今日一言 · 摘自 DeepSeek V4 Flash 正式版评论</div>
+  </div>
+
+  <div class="menu">
+    <div class="head">本版目录 <span class="en">Contents</span></div>
+
+    <a class="menu-item" href="news.html">
+      <span class="no">壹</span>
+      <span class="info">
+        <span class="t">每日新闻速览</span>
+        <span class="d">总第 001 期 · 今日 16 条 · 头条：DeepSeek V4 Flash 正式版</span>
+      </span>
+      <span class="state live">今日已发</span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="menu-item" href="career.html">
+      <span class="no">贰</span>
+      <span class="info">
+        <span class="t">求职看板</span>
+        <span class="d">方向对比 · 目标公司 · 技能矩阵 · 大三时间线</span>
+      </span>
+      <span class="state live">已上线</span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="menu-item" href="library.html">
+      <span class="no">叁</span>
+      <span class="info">
+        <span class="t">知识库</span>
+        <span class="d">网站推荐 · 观点笔记 · Skill 线索</span>
+      </span>
+      <span class="state live">已上线</span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="menu-item" href="ideas.html">
+      <span class="no">肆</span>
+      <span class="info">
+        <span class="t">灵感碎片</span>
+        <span class="d">角色 · 世界观 · 机制 · 页面直接收下念头</span>
+      </span>
+      <span class="state live">已上线</span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="menu-item" href="calendar.html">
+      <span class="no">伍</span>
+      <span class="info">
+        <span class="t">赛事日历</span>
+        <span class="d">Game Jam · 游戏赛事 · 报名窗口</span>
+      </span>
+      <span class="state live">已上线</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="colophon">
+    <div class="end">— 完 —</div>
+    <div class="meta">
+      Hanako 箱庭 · 由 Hanako 打理 · 每日更新<br>
+      http://111.229.70.27:8421/ · 明晨六时再会
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

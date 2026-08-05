@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日新闻速览 · 创刊号 · 2026-08-05</title>
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --card: #fbf8f2;
+    --ink: #26221c;
+    --ink-soft: #5c564c;
+    --line: #c9c2b4;
+    --red: #8b2c1f;
+    --blue: #2f5d8a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, serif;
+    background: var(--paper); color: var(--ink); line-height: 1.75;
+    padding-bottom: 50px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== 报眉 ===== */
+  .eyebrow {
+    font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px solid var(--line); padding: 10px 0 8px;
+  }
+
+  /* ===== 报头 ===== */
+  .masthead { text-align: center; padding: 26px 0 20px; }
+  .masthead h1 {
+    font-size: 56px; font-weight: 800; color: var(--red);
+    letter-spacing: 10px; line-height: 1.15; text-indent: 10px;
+  }
+  .masthead .sub {
+    margin-top: 8px; font-size: 12px; color: var(--ink-soft);
+    letter-spacing: 6px; text-indent: 6px;
+  }
+  .rule-double {
+    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink);
+    height: 5px; margin-bottom: 24px;
+  }
+
+  /* ===== 栏目 ===== */
+  .sec-title {
+    display: flex; align-items: center; gap: 10px;
+    margin: 26px 0 14px; font-size: 20px; font-weight: 700;
+    letter-spacing: 3px;
+  }
+  .sec-title::before { content: "■"; color: var(--red); font-size: 14px; }
+  .sec-title .en {
+    font-size: 10.5px; font-weight: 400; color: var(--ink-soft);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .sec-title .rule { flex: 1; border-top: 1px solid var(--line); }
+
+  /* ===== 头条 ===== */
+  .lead { border-top: 2px solid var(--ink); padding: 16px 0 6px; margin-bottom: 18px; }
+  .lead h2 {
+    font-size: 24px; font-weight: 800; line-height: 1.4; margin-bottom: 8px;
+  }
+  .lead .summary { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 8px; }
+  .lead ul { list-style: none; }
+  .lead ul li {
+    font-size: 14px; padding-left: 18px; position: relative; margin-bottom: 3px;
+  }
+  .lead ul li::before { content: "·"; position: absolute; left: 6px; font-weight: 700; }
+  .lead .tagline { margin-top: 8px; font-size: 11.5px; color: var(--ink-soft); }
+  .lead .tagline b { color: var(--red); font-weight: 700; }
+
+  /* ===== 新闻条目 ===== */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+  .news { padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .news h3 { font-size: 16.5px; font-weight: 700; line-height: 1.5; margin-bottom: 6px; }
+  .news h3 a { color: var(--ink); text-decoration: none; }
+  .news h3 a:hover { color: var(--red); }
+  .news ul { list-style: none; }
+  .news ul li {
+    font-size: 13px; color: var(--ink-soft); padding-left: 16px;
+    position: relative; margin-bottom: 2px;
+  }
+  .news ul li::before { content: "—"; position: absolute; left: 2px; color: var(--line); }
+  .news .src { font-size: 11px; color: var(--blue); margin-top: 7px; display: block; }
+  .news .src a { color: var(--blue); text-decoration: none; border-bottom: 1px dotted var(--blue); }
+  .news .src a:hover { border-bottom: 1px solid var(--blue); }
+
+  /* ===== 世事列表 ===== */
+  .watch-list { border: 1px solid var(--ink); padding: 4px 22px; margin-top: 6px; }
+  .watch-item {
+    display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dotted var(--line);
+    align-items: baseline;
+  }
+  .watch-item:last-child { border-bottom: none; }
+  .watch-item .t { font-size: 14.5px; font-weight: 700; white-space: nowrap; }
+  .watch-item .d { font-size: 13px; color: var(--ink-soft); }
+  .watch-item .s { font-size: 11px; color: var(--blue); white-space: nowrap; }
+
+  /* ===== 报尾 ===== */
+  .colophon {
+    margin-top: 34px; padding: 18px 0; text-align: center;
+    border-top: 2px solid var(--ink);
+  }
+  .colophon .end { font-size: 13px; letter-spacing: 6px; color: var(--ink); margin-bottom: 8px; }
+  .colophon .meta { font-size: 11.5px; color: var(--ink-soft); line-height: 2; }
+  #top {
+    position: fixed; right: 22px; bottom: 22px; width: 40px; height: 40px;
+    border-radius: 50%; background: var(--ink); color: var(--paper);
+    border: none; font-size: 15px; cursor: pointer; opacity: .8;
+  }
+  #top:hover { opacity: 1; }
+
+  @media (max-width: 560px) {
+    .masthead h1 { font-size: 38px; letter-spacing: 6px; text-indent: 6px; }
+    .lead h2 { font-size: 19px; }
+    .cols { grid-template-columns: 1fr; }
+    .watch-item { flex-wrap: wrap; gap: 2px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">
+  <span>创刊号 · 总第 001 期</span>
+  <span>2026年8月5日 · 星期三</span>
+  <span>出版地：腾讯云</span>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>每日新闻速览</h1>
+    <div class="sub">DAILY NEWS REVIEW · 科技晨报</div>
+  </div>
+  <div class="rule-double"></div>
+
+  <!-- ============ 头条 ============ -->
+  <div class="sec-title">今日头条 <span class="en">Headlines</span><span class="rule"></span></div>
+
+  <div class="lead">
+    <h2>DeepSeek V4 Flash 正式版上线公测：轻量模型反超自家 Pro 预览版</h2>
+    <p class="summary">7 月 31 日，DeepSeek 在 API 更新日志中悄然官宣 V4-Flash-0731 正式版。没有发布会，开发者圈却炸了锅：一个小参数模型，在 Agent 能力上全面反超自家旗舰预览版。</p>
+    <ul>
+      <li>总参数 284B（激活 13B），100 万 token 上下文；结构尺寸与预览版一致，仅重新后训练</li>
+      <li>九项智能体/代码/自动化基准整体超越 V4-Pro 预览版：Terminal Bench 2.1 得 82.7，DeepSWE 54.4</li>
+      <li>原生支持 OpenAI Responses API 格式，针对性适配 Codex，无需改 Base URL 即可切换</li>
+      <li>100 万 token 场景单 token 推理计算量仅为 V3.2 的 27%，KV Cache 占用降至约 10%</li>
+      <li>OpenCode 数据显示其单日吞吐已达 8 万亿 token；V4-Pro 正式版「尽快发布」</li>
+    </ul>
+    <div class="tagline">本报评论：<b>当 13B 激活参数够用的时候，旗舰模型的护城河还剩多少？</b>——2026 年的关键词是 Agent，后训练正在改写竞争逻辑</div>
+  </div>
+
+  <div class="lead">
+    <h2>华为今日 14:30 发布会：尊界 V800/V680 上市，享界 G9 开启预订</h2>
+    <p class="summary">余承东登台的「尊界 MPV 及华为全场景新品发布会」今天下午登场，六大品类新品覆盖汽车、电脑、平板、手机和手表。</p>
+    <ul>
+      <li>时代旗舰 MPV 尊界 V800 与 V680 正式上市</li>
+      <li>鸿蒙智行首款科技豪华硬派 SUV 享界 G9 同步开启预订</li>
+      <li>发布会延续「42 分钟高效风格」，全程干货</li>
+    </ul>
+    <div class="tagline">本报提醒：<b>会后我们会在下一期补上发布会的关键信息</b></div>
+  </div>
+
+  <!-- ============ 双栏正文 ============ -->
+  <div class="cols">
+
+    <div>
+      <div class="sec-title">AI / 科技 <span class="en">Tech</span><span class="rule"></span></div>
+
+      <div class="news">
+        <h3><a href="https://finance.sina.com.cn/stock/y/2026-08-05/doc-inimffsv4820142.shtml">宇树科技今日启动发行询价：拟募资 42 亿</a></h3>
+        <ul>
+          <li>拟公开发行 4044.64 万股；股东名单汇聚互联网巨头、头部 VC/PE 与国资</li>
+          <li>按发行估值测算，多家早期机构账面回报已达数十倍乃至数百倍</li>
+        </ul>
+        <span class="src"><a href="https://finance.sina.com.cn/stock/y/2026-08-05/doc-inimffsv4820142.shtml">[中国证券报]</a></span>
+      </div>
+
+      <div class="news">
+        <h3><a href="https://finance.sina.com.cn/stock/cpbd/2026-08-05/doc-inimffsv4821989.shtml">腾讯混元发布新一代语音识别模型 Hy ASR 3.0 preview</a></h3>
+        <ul>
+          <li>基于 Hy3 大模型语言理解能力，复杂真实输入下转写更准确连贯</li>
+        </ul>
+        <span class="src"><a href="https://finance.sina.com.cn/stock/cpbd/2026-08-05/doc-inimffsv4821989.shtml">[操盘必读]</a></span>
+      </div>
+
+      <div class="news">
+        <h3>具身智能融资半年 935 亿：机器人从「看见」走向「触摸」</h3>
+        <ul>
+          <li>上半年行业融资 322 笔共 935 亿元，同比增长 137%</li>
+          <li>触觉感知细分赛道前 7 个月新增融资超 70 亿，至少两家新晋独角兽</li>
+          <li>机器人插接零件、拿捏塑料瓶仍会「翻车」，触觉是多模态交互的关键缺口</li>
+        </ul>
+        <span class="src">[具身智能50人论坛 · 证券日报]</span>
+      </div>
+
+      <div class="news">
+        <h3>首部 L3/L4 自动驾驶强制国标发布，2027 年 7 月实施</h3>
+        <ul>
+          <li>要求建立全周期安全保障与检验体系</li>
+          <li>L3 系统须具备驾驶人接管能力监测功能</li>
+        </ul>
+        <span class="src">[证券日报]</span>
+      </div>
+
+      <div class="news">
+        <h3><a href="https://finance.sina.com.cn/stock/aiassist/ydfx/2026-08-05/doc-inimfmym3680458.shtml">美股新高与马斯克「黑色七月」同框</a></h3>
+        <ul>
+          <li>道指单日涨 1000 点，标普创 6 月来新高，美伊协议希望提振</li>
+          <li>马斯克单月财富缩水约 2.45 万亿元人民币，创纪录，相当于亏掉 2 个黄仁勋</li>
+          <li>SpaceX 发布 IPO 后首份财报，营收同比增长 92%</li>
+        </ul>
+        <span class="src"><a href="https://finance.sina.com.cn/stock/aiassist/ydfx/2026-08-05/doc-inimfmym3680458.shtml">[财经早报]</a></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-title">游戏 / 开发圈 <span class="en">Dev</span><span class="rule"></span></div>
+
+      <div class="news">
+        <h3><a href="https://godotengine.org/article/release-candidate-godot-4-7-2-rc-1/">Godot 4.7.2 RC1 发布：37 位贡献者、43 项改进</a></h3>
+        <ul>
+          <li>4.7 发布一个半月连推两个维护版，本次以回归修复为主</li>
+          <li>修复崩溃、Windows 高轮询率鼠标性能、Wayland IME 等问题</li>
+        </ul>
+        <span class="src"><a href="https://godotengine.org/article/release-candidate-godot-4-7-2-rc-1/">[Godot 官方博客]</a></span>
+      </div>
+
+      <div class="news">
+        <h3><a href="https://36kr.com/p/3879577220395266">Godot 收紧贡献政策：禁 Vibe Coding，禁 AI 生成大段代码</a></h3>
+        <ul>
+          <li>新贡献者（合并 PR 不超过 3 个）提交大型功能须先获维护者批准</li>
+          <li>官方原话：「AI 不会为代码负责，我们也无法相信高度依赖 AI 的开发者」</li>
+        </ul>
+        <span class="src"><a href="https://36kr.com/p/3879577220395266">[36氪 · CSDN]</a></span>
+      </div>
+
+      <div class="news">
+        <h3>抗战题材游戏《抵抗者》引发热议：历史的重量该由谁来承担</h3>
+        <ul>
+          <li>知乎话题 57 万热度，讨论集中在叙事立场与历史呈现方式</li>
+          <li>国产游戏题材边界的一次公众测试</li>
+        </ul>
+        <span class="src">[知乎热榜]</span>
+      </div>
+
+      <div class="news">
+        <h3><a href="https://www.163.com/dy/article/L3IMPD1005118EDB.html">国产 2.5D 推理游戏《杀死影子》今日发售，Steam 首发 58.5 元</a></h3>
+        <ul>
+          <li>多结局剧情推理，今日发售的叙事向独立作品</li>
+        </ul>
+        <span class="src"><a href="https://www.163.com/dy/article/L3IMPD1005118EDB.html">[网易]</a></span>
+      </div>
+
+      <div class="news">
+        <h3><a href="https://ku.gamersky.com/release/pc_202608/">《命运石之门：重启》8 月 19 日发售：角色画面 UI 全面翻新</a></h3>
+        <ul>
+          <li>MAGES. 以现代标准全面重启，追加全新剧情</li>
+        </ul>
+        <span class="src"><a href="https://ku.gamersky.com/release/pc_202608/">[游民星空]</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 世事 ============ -->
+  <div class="sec-title">世事 · 人间 <span class="en">Society</span><span class="rule"></span></div>
+  <div class="watch-list">
+    <div class="watch-item">
+      <span class="t">一封家书</span>
+      <span class="d">知乎热榜第一：《致我十年未见的妈妈》获赞 200 万、热度 540 万，评论区成了集体哭墙</span>
+      <span class="s">[知乎]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">张伟丽拉爆网红</span>
+      <span class="d">健身博主花小龙本想带冠军体验自律一天，反被全程拉爆、一脚终结；视频 8 小时点赞破 200 万</span>
+      <span class="s">[新浪娱乐]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">美债破 40 万亿</span>
+      <span class="d">2026 年 8 月美国国债正式突破 40 万亿美元大关，「压垮美债的最后一根稻草」成为全网追问</span>
+      <span class="s">[知乎热榜]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">虞书欣名场面</span>
+      <span class="d">篮球赛「八投零中」跺脚噘嘴，外国小哥精准模仿刷屏，跨文化二创让萌态火出圈</span>
+      <span class="s">[新浪娱乐]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">影史黑马</span>
+      <span class="d">恐怖电影《痴迷》内地票房突破 1 亿，跻身影史最赚钱的电影之一</span>
+      <span class="s">[今日热榜]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">邮件礼仪之问</span>
+      <span class="d">「发现好多大学生不懂邮件礼仪」上热搜：该不该纳入大学课程，成了两代人的观念对撞</span>
+      <span class="s">[微博]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">AI 角色上专访</span>
+      <span class="d">内娱首次以真人规格采访 AI 角色：《砚边青梅》的言叙与李幼薇接受深度 CP 专访，AI 演员宣发迈入「类真人明星」时代</span>
+      <span class="s">[新浪娱乐]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">直播电商新规</span>
+      <span class="d">国家发布直播电商监管新规：AI 生成内容首次纳入监管，「流量即监管」惩戒体系落地</span>
+      <span class="s">[新闻联播]</span>
+    </div>
+  </div>
+
+  <!-- ============ 值得关注 ============ -->
+  <div class="sec-title">值得关注 <span class="en">Watching</span><span class="rule"></span></div>
+  <div class="watch-list">
+    <div class="watch-item">
+      <span class="t">杰文斯悖论</span>
+      <span class="d">模型越便宜、算力需求越大？OpenRouter 数据显示中国模型 token 用量已超非中国模型；Kimi K3 引发的美股震荡余波未平</span>
+      <span class="s">[产业逻辑]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">OpenAI 自研手机</span>
+      <span class="d">郭明錤爆料：与联发科、高通合作开发处理器，立讯精密独家协同，2028 年量产</span>
+      <span class="s">[天风国际]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">OpenAI Astra</span>
+      <span class="d">内部版 Astra 用约 2000 美元成本解决数学与理论计算机科学 10 项重大进展，含推翻 Connes 刚性猜想，已发布 Lean 证书与完整推导</span>
+      <span class="s">[AI HOT]</span>
+    </div>
+    <div class="watch-item">
+      <span class="t">中国围棋回归</span>
+      <span class="d">中国围棋协会官宣参加 2026 年 LG 杯，棋迷久等的一步</span>
+      <span class="s">[今日热榜]</span>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <div class="end">— 完 —</div>
+    <div class="meta">
+      每日新闻速览 · 创刊号 · 由 Hanako 整理编发（午间增订版）<br>
+      数据截至 2026-08-05 中午 · 链接仅收录原文出处 · 明晨六时再会
+    </div>
+  </div>
+</div>
+
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</body>
+</html>

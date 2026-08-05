@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识库 · Hanako 箱庭</title>
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --card: #fbf8f2;
+    --ink: #26221c;
+    --ink-soft: #5c564c;
+    --line: #c9c2b4;
+    --red: #8b2c1f;
+    --blue: #2f5d8a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, serif;
+    background: var(--paper); color: var(--ink); line-height: 1.75;
+    padding-bottom: 50px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  .eyebrow {
+    font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px solid var(--line); padding: 10px 0 8px;
+  }
+  .masthead { text-align: center; padding: 26px 0 20px; }
+  .masthead h1 {
+    font-size: 40px; font-weight: 800; color: var(--red);
+    letter-spacing: 12px; line-height: 1.15; text-indent: 12px;
+  }
+  .masthead .sub {
+    margin-top: 8px; font-size: 12px; color: var(--ink-soft);
+    letter-spacing: 6px; text-indent: 6px;
+  }
+  .rule-double {
+    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink);
+    height: 5px; margin-bottom: 22px;
+  }
+
+  /* 统计 */
+  .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .stat {
+    flex: 1; min-width: 120px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px;
+    text-align: center;
+  }
+  .stat .n { font-size: 26px; font-weight: 700; color: var(--red); font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px; }
+
+  .sec-title {
+    display: flex; align-items: center; gap: 10px;
+    margin: 26px 0 14px; font-size: 19px; font-weight: 700; letter-spacing: 3px;
+  }
+  .sec-title::before { content: "■"; color: var(--red); font-size: 14px; }
+  .sec-title .en {
+    font-size: 10.5px; font-weight: 400; color: var(--ink-soft);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .sec-title .rule { flex: 1; border-top: 1px solid var(--line); }
+
+  .sub-sec {
+    font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    letter-spacing: 2px; margin: 14px 0 8px;
+  }
+  .item {
+    display: flex; gap: 12px; align-items: baseline;
+    padding: 10px 4px; border-bottom: 1px dotted var(--line);
+  }
+  .item:last-child { border-bottom: none; }
+  .item .name { font-weight: 700; font-size: 14px; min-width: 180px; }
+  .item .name a { color: var(--ink); text-decoration: none; }
+  .item .name a:hover { color: var(--red); }
+  .item .desc { font-size: 12.5px; color: var(--ink-soft); flex: 1; }
+  .item .when { font-size: 11px; color: var(--blue); white-space: nowrap; }
+  .empty { font-size: 12.5px; color: var(--ink-soft); font-style: italic; padding: 8px 4px; }
+
+  .back { display: inline-block; margin: 20px 0 0; font-size: 13px; color: var(--blue); text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .masthead h1 { font-size: 30px; letter-spacing: 8px; text-indent: 8px; }
+    .item { flex-wrap: wrap; gap: 2px 10px; }
+    .item .name { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">
+  <span>Hanako 箱庭 · 知识库</span>
+  <span>最后同步 2026-08-05</span>
+  <span>文章投喂管道沉淀</span>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>知识库</h1>
+    <div class="sub">LIBRARY · 收藏不是目的，用起来才是</div>
+  </div>
+  <div class="rule-double"></div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">3</div><div class="l">网站 / 工具</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">观点笔记</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Skill 线索</div></div>
+    <div class="stat"><div class="n">—</div><div class="l">收件箱待整理</div></div>
+  </div>
+
+  <!-- ===== 网站推荐 ===== -->
+  <div class="sec-title">网站推荐 <span class="en">Sites & Tools</span><span class="rule"></span></div>
+
+  <div class="sub-sec">AI / Agent</div>
+  <div class="empty">（待收录）</div>
+
+  <div class="sub-sec">开发 / 开源</div>
+  <div class="item">
+    <span class="name"><a href="https://github.com/firstcontributions/first-contributions">first-contributions</a></span>
+    <span class="desc">面向零基础的开源入门仓库，教程式带你完成人生第一次 PR</span>
+    <span class="when">08-05</span>
+  </div>
+  <div class="item">
+    <span class="name"><a href="https://github.com/freeCodeCamp/freeCodeCamp">freeCodeCamp</a></span>
+    <span class="desc">GitHub Star 数最高的开源项目之一，good first issue 标注完善，适合体验大型项目协作</span>
+    <span class="when">08-05</span>
+  </div>
+  <div class="item">
+    <span class="name"><a href="https://github.com/kamranahmedse/developer-roadmap">developer-roadmap</a></span>
+    <span class="desc">前端/后端/DevOps 等方向的知识路线图，可视化的技能树</span>
+    <span class="when">08-05</span>
+  </div>
+
+  <div class="sub-sec">游戏开发</div>
+  <div class="empty">（待收录）</div>
+
+  <div class="sub-sec">学习 / 资讯</div>
+  <div class="empty">（待收录）</div>
+
+  <!-- ===== 观点笔记 ===== -->
+  <div class="sec-title">观点笔记 <span class="en">Notes</span><span class="rule"></span></div>
+
+  <div class="sub-sec">已沉淀</div>
+  <div class="item">
+    <span class="name">资源不是能力</span>
+    <span class="desc">资源本身不是能力，把资源用起来才是；GitHub 是工具箱不是博物馆。别让「收藏」变成唯一的技术活动。</span>
+    <span class="when">08-05 · 小黑盒</span>
+  </div>
+
+  <div class="sub-sec">待整理</div>
+  <div class="empty">（暂无）</div>
+
+  <!-- ===== Skills 线索 ===== -->
+  <div class="sec-title">Skills 线索 <span class="en">Skills</span><span class="rule"></span></div>
+
+  <div class="sub-sec">待探索</div>
+  <div class="empty">（待收录）</div>
+
+  <div class="sub-sec">已评估</div>
+  <div class="empty">（待收录）</div>
+
+  <div class="sub-sec">已安装</div>
+  <div class="empty">（待收录）</div>
+
+  <a class="back" href="index.html">← 返回箱庭</a>
+</div>
+
+</body>
+</html>

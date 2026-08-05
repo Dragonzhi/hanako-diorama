@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>灵感碎片 · Hanako 箱庭</title>
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --card: #fbf8f2;
+    --ink: #26221c;
+    --ink-soft: #5c564c;
+    --line: #c9c2b4;
+    --red: #8b2c1f;
+    --blue: #2f5d8a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, serif;
+    background: var(--paper); color: var(--ink); line-height: 1.75;
+    padding-bottom: 50px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  .eyebrow {
+    font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px solid var(--line); padding: 10px 0 8px;
+  }
+  .masthead { text-align: center; padding: 26px 0 20px; }
+  .masthead h1 {
+    font-size: 40px; font-weight: 800; color: var(--red);
+    letter-spacing: 12px; line-height: 1.15; text-indent: 12px;
+  }
+  .masthead .sub {
+    margin-top: 8px; font-size: 12px; color: var(--ink-soft);
+    letter-spacing: 6px; text-indent: 6px;
+  }
+  .rule-double {
+    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink);
+    height: 5px; margin-bottom: 22px;
+  }
+
+  /* 添加表单 */
+  .add-box { border: 1px solid var(--ink); padding: 18px 22px; background: var(--card); }
+  .add-box .h { font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; color: var(--red); }
+  textarea {
+    width: 100%; min-height: 84px; resize: vertical;
+    background: var(--paper); border: 1px solid var(--line);
+    font-family: inherit; font-size: 14px; color: var(--ink);
+    padding: 10px 12px; line-height: 1.6; outline: none;
+  }
+  textarea:focus { border-color: var(--ink); }
+  .add-row { display: flex; gap: 10px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
+  select {
+    background: var(--paper); border: 1px solid var(--line); color: var(--ink);
+    font-family: inherit; font-size: 13px; padding: 6px 10px; outline: none;
+  }
+  button {
+    background: var(--ink); color: var(--paper); border: none;
+    font-family: inherit; font-size: 13px; letter-spacing: 2px;
+    padding: 7px 20px; cursor: pointer;
+  }
+  button:hover { background: var(--red); }
+  button:disabled { opacity: .5; cursor: default; background: var(--ink); }
+  .hint { font-size: 11.5px; color: var(--ink-soft); }
+  #status { font-size: 12px; color: var(--blue); margin-left: auto; }
+
+  /* 碎片列表 */
+  .sec-title {
+    display: flex; align-items: center; gap: 10px;
+    margin: 28px 0 14px; font-size: 18px; font-weight: 700; letter-spacing: 3px;
+  }
+  .sec-title::before { content: "■"; color: var(--red); font-size: 13px; }
+  .sec-title .rule { flex: 1; border-top: 1px solid var(--line); }
+  .sec-title .count { font-size: 12px; color: var(--ink-soft); letter-spacing: 1px; }
+
+  .idea {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 6px; border-bottom: 1px dotted var(--line);
+  }
+  .idea .tag {
+    font-size: 11px; white-space: nowrap; letter-spacing: 1px;
+    border: 1px solid var(--line); color: var(--ink-soft);
+    border-radius: 999px; padding: 1px 10px; margin-top: 3px;
+  }
+  .idea .tag.热 { color: var(--red); border-color: var(--red); }
+  .idea .body { flex: 1; min-width: 0; }
+  .idea .content { font-size: 14.5px; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
+  .idea .when { font-size: 11px; color: var(--ink-soft); margin-top: 5px; }
+  .idea .del {
+    font-size: 13px; color: var(--ink-soft); cursor: pointer; background: none;
+    border: none; padding: 2px 6px; font-family: inherit;
+  }
+  .idea .del:hover { color: var(--red); }
+
+  .empty { text-align: center; color: var(--ink-soft); font-size: 13px; padding: 40px 0; font-style: italic; }
+
+  .back { display: inline-block; margin: 20px 0 0; font-size: 13px; color: var(--blue); text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .masthead h1 { font-size: 30px; letter-spacing: 8px; text-indent: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">
+  <span>Hanako 箱庭 · 灵感碎片</span>
+  <span>念头要趁热收下</span>
+  <span>角色 · 世界观 · 机制</span>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>灵感碎片</h1>
+    <div class="sub">IDEAS · 随手一记，日后成树</div>
+  </div>
+  <div class="rule-double"></div>
+
+  <div class="add-box">
+    <div class="h">收下一个念头</div>
+    <textarea id="content" placeholder="角色设定、世界观碎片、玩法机制、一句台词……什么都可以，先写下来"></textarea>
+    <div class="add-row">
+      <select id="tag">
+        <option>角色</option>
+        <option>世界观</option>
+        <option>机制</option>
+        <option>文案</option>
+        <option>其他</option>
+      </select>
+      <button id="addBtn">收下</button>
+      <span class="hint">存进箱庭，随时可取</span>
+      <span id="status"></span>
+    </div>
+  </div>
+
+  <div class="sec-title">碎片墙 <span class="rule"></span><span class="count" id="count"></span></div>
+  <div id="list"><div class="empty">还没有碎片，收下第一个念头吧</div></div>
+
+  <a class="back" href="index.html">← 返回箱庭</a>
+</div>
+
+<script>
+const TOKEN = "zk-diorama-8f3a";
+const listEl = document.getElementById('list');
+const countEl = document.getElementById('count');
+const statusEl = document.getElementById('status');
+const contentEl = document.getElementById('content');
+const tagEl = document.getElementById('tag');
+const addBtn = document.getElementById('addBtn');
+
+async function load() {
+  try {
+    const res = await fetch('/api/ideas');
+    const data = await res.json();
+    const items = data.ideas || [];
+    countEl.textContent = '共 ' + items.length + ' 片';
+    if (!items.length) {
+      listEl.innerHTML = '<div class="empty">还没有碎片，收下第一个念头吧</div>';
+      return;
+    }
+    listEl.innerHTML = items.map(i =>
+      '<div class="idea">' +
+        '<span class="tag">' + i.tag + '</span>' +
+        '<div class="body"><div class="content"></div><div class="when">' + i.date + ' ' + (i.time || '') + '</div></div>' +
+        '<button class="del" data-id="' + i.id + '" title="丢弃">×</button>' +
+      '</div>'
+    ).join('');
+    listEl.querySelectorAll('.content').forEach((el, idx) => { el.textContent = items[idx].content; });
+    listEl.querySelectorAll('.del').forEach(btn => {
+      btn.addEventListener('click', () => remove(btn.dataset.id));
+    });
+  } catch (e) {
+    statusEl.textContent = '加载失败：' + e.message;
+  }
+}
+
+async function add() {
+  const content = contentEl.value.trim();
+  if (!content) { statusEl.textContent = '写点什么再收吧'; return; }
+  addBtn.disabled = true;
+  statusEl.textContent = '收集中…';
+  try {
+    const res = await fetch('/api/ideas', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: TOKEN, content: content, tag: tagEl.value })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      contentEl.value = '';
+      statusEl.textContent = '已收下 ✓';
+      load();
+    } else {
+      statusEl.textContent = data.error || '失败';
+    }
+  } catch (e) {
+    statusEl.textContent = '失败：' + e.message;
+  }
+  addBtn.disabled = false;
+  setTimeout(() => { statusEl.textContent = ''; }, 2500);
+}
+
+async function remove(id) {
+  if (!confirm('丢掉这片碎片？')) return;
+  await fetch('/api/ideas/' + id, { method: 'DELETE' });
+  load();
+}
+
+addBtn.addEventListener('click', add);
+contentEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) add();
+});
+load();
+</script>
+</body>
+</html>
