@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学生福利 · Hanako 箱庭</title>
+<style>
+  :root {
+    --paper: #f7f3ec;
+    --card: #fbf8f2;
+    --ink: #26221c;
+    --ink-soft: #5c564c;
+    --line: #c9c2b4;
+    --red: #8b2c1f;
+    --blue: #2f5d8a;
+    --green: #4a6b4a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, serif;
+    background: var(--paper); color: var(--ink); line-height: 1.75;
+    padding-bottom: 50px; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+  .eyebrow {
+    font-size: 11.5px; color: var(--ink-soft); letter-spacing: 2px;
+    display: flex; justify-content: space-between; gap: 8px;
+    border-bottom: 1px solid var(--line); padding: 10px 0 8px;
+  }
+  .masthead { text-align: center; padding: 26px 0 20px; }
+  .masthead h1 {
+    font-size: 40px; font-weight: 800; color: var(--red);
+    letter-spacing: 12px; line-height: 1.15; text-indent: 12px;
+  }
+  .masthead .sub {
+    margin-top: 8px; font-size: 12px; color: var(--ink-soft);
+    letter-spacing: 6px; text-indent: 6px;
+  }
+  .rule-double {
+    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink);
+    height: 5px; margin-bottom: 22px;
+  }
+  .notice {
+    border: 1px solid var(--line); background: var(--card);
+    font-size: 12.5px; color: var(--ink-soft); padding: 12px 18px; margin-bottom: 8px;
+  }
+
+  .sec-title {
+    display: flex; align-items: center; gap: 10px;
+    margin: 28px 0 14px; font-size: 19px; font-weight: 700; letter-spacing: 3px;
+  }
+  .sec-title::before { content: "■"; color: var(--red); font-size: 14px; }
+  .sec-title .en {
+    font-size: 10.5px; font-weight: 400; color: var(--ink-soft);
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .sec-title .rule { flex: 1; border-top: 1px solid var(--line); }
+
+  .item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 13px 6px; border-bottom: 1px dotted var(--line);
+  }
+  .item .name { min-width: 130px; font-size: 14.5px; font-weight: 700; }
+  .item .name a { color: var(--ink); text-decoration: none; }
+  .item .name a:hover { color: var(--red); }
+  .item .desc { flex: 1; min-width: 0; font-size: 13px; color: var(--ink-soft); }
+  .item .desc b { color: var(--ink); font-weight: 700; }
+  .item .how { font-size: 11px; color: var(--blue); white-space: nowrap; padding-top: 2px; }
+  .flag { font-size: 11px; padding: 1px 9px; border-radius: 999px; letter-spacing: 1px; white-space: nowrap; }
+  .f-hot { color: var(--red); border: 1px solid var(--red); }
+  .f-warn { color: var(--green); border: 1px solid var(--green); }
+  .f-old { color: var(--ink-soft); border: 1px solid var(--line); }
+
+  .tip { border: 1px solid var(--ink); background: var(--card); padding: 16px 22px; margin-top: 10px; }
+  .tip .t-head { font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; color: var(--red); }
+  .tip p { font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; }
+  .tip p:last-child { margin-bottom: 0; }
+
+  .back { display: inline-block; margin: 20px 0 0; font-size: 13px; color: var(--blue); text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .masthead h1 { font-size: 30px; letter-spacing: 8px; text-indent: 8px; }
+    .item { flex-wrap: wrap; gap: 2px 10px; }
+    .item .name { min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">
+  <span>Hanako 箱庭 · 学生福利</span>
+  <span>2026 年 8 月核实</span>
+  <span>不领白不领</span>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <h1>学生福利</h1>
+    <div class="sub">STUDENT PERKS · 学生证就是钱</div>
+  </div>
+  <div class="rule-double"></div>
+
+  <div class="notice">
+    大部分福利用学校邮箱（edu 结尾）或学生认证即可领取。福利内容经常变动，领取前以官方页面为准。2026 年几个重要变化已标注：Copilot 学生计划暂停新注册、Cursor 免费 Pro 停止、Canva 学生权益下线。
+  </div>
+
+  <!-- ===== 必领 ===== -->
+  <div class="sec-title">必领 · GitHub Student Pack <span class="en">Core</span><span class="rule"></span></div>
+
+  <div class="item">
+    <span class="name"><a href="https://education.github.com/pack">GitHub Student Pack</a></span>
+    <span class="desc"><b>一次认证解锁 90+ 服务的学生权益</b>，含 GitHub Pro、JetBrains 全产品、DigitalOcean 200 美元、Azure 100 美元、免费域名等。用学校邮箱或学籍证明认证，约 72 小时通过</span>
+    <span class="flag f-hot">最优先</span>
+  </div>
+  <div class="item">
+    <span class="name"><a href="https://jetbrains.com/academy/student-pack">JetBrains 全家桶</a></span>
+    <span class="desc">IntelliJ IDEA、PyCharm 等全部 IDE 免费。<b>1 年更新制，记得每年续认证</b>，可走 GitHub Pack 或直接官网学生申请</span>
+    <span class="flag f-hot">免费</span>
+  </div>
+  <div class="item">
+    <span class="name">GitHub Copilot</span>
+    <span class="desc"><b>2026 年 4 月起暂停学生计划新注册</b>（官方称算力需求），暂停前认证的学生保留；新认证的目前给 Copilot Free。再开时间待官方公告</span>
+    <span class="flag f-warn">变化中</span>
+  </div>
+  <div class="item">
+    <span class="name">免费域名</span>
+    <span class="desc">Pack 内含免费域名权益（如 Namecheap .me 一年），申请后记得按时续期或转移，别让域名丢了</span>
+    <span class="flag f-hot">正好配域名计划</span>
+  </div>
+  <div class="item">
+    <span class="name">DigitalOcean</span>
+    <span class="desc">200 美元额度。注意 2026 年 6 月起 GPU 类服务不可用额度抵扣，普通 VPS 没问题</span>
+    <span class="how">有时限，用到再领</span>
+  </div>
+  <div class="item">
+    <span class="name">Azure for Students</span>
+    <span class="desc">100 美元额度 + 25 项以上免费云服务，<b>免信用卡</b></span>
+    <span class="how">有时限</span>
+  </div>
+
+  <div class="tip">
+    <div class="t-head">领取顺序建议</div>
+    <p>1. 先认证 GitHub Pack，立刻领 GitHub Pro 和 JetBrains（这两样一直在）。</p>
+    <p>2. 有时限的（DigitalOcean、DataCamp、GitKraken、免费域名）等真正要用的时候再领，别领了浪费。</p>
+    <p>3. 学生身份失效前，每年续一次 JetBrains 认证。</p>
+  </div>
+
+  <!-- ===== 开发工具 ===== -->
+  <div class="sec-title">开发工具 <span class="en">Dev Tools</span><span class="rule"></span></div>
+
+  <div class="item">
+    <span class="name">Cursor</span>
+    <span class="desc">AI 编辑器。免费 Pro 1 年已在 2026 年 6 月停止新申请，目前学生可用免费 Hobby 档</span>
+    <span class="flag f-old">权益缩水</span>
+  </div>
+  <div class="item">
+    <span class="name">Notion</span>
+    <span class="desc">教育版免费升级 Plus 计划，用学校邮箱即可</span>
+    <span class="how">学校邮箱</span>
+  </div>
+  <div class="item">
+    <span class="name">Figma</span>
+    <span class="desc">教育版免费 Pro，1 年更新制，走 GitHub Pack 或学校邮箱</span>
+    <span class="how">学校邮箱</span>
+  </div>
+  <div class="item">
+    <span class="name">Office 365 教育版</span>
+    <span class="desc">学校邮箱几乎都送全套 Office，含 1TB OneDrive，先去学校信息化处查一下激活方式</span>
+    <span class="flag f-hot">别漏了</span>
+  </div>
+
+  <!-- ===== 云资源 ===== -->
+  <div class="sec-title">云资源 <span class="en">Cloud</span><span class="rule"></span></div>
+
+  <div class="item">
+    <span class="name"><a href="https://cloud.tencent.com/act/campus">腾讯云 · 云+校园</a></span>
+    <span class="desc">轻量 2核2G 约 25.9 元起/3月、2核4G 约 46.4 元起/3月；配套 TDSQL-C 数据库 0.3 折、云开发个人版免费 6 个月、95 节云计算课程、从业者认证机会、AI 识别额度</span>
+    <span class="flag f-hot">已薅</span>
+  </div>
+  <div class="item">
+    <span class="name">腾讯云 · 个人首单秒杀</span>
+    <span class="desc">4核4G 一年 38 元（0.5 折）、OpenClaw 专区 4核4G 99 元/年；与校园计划不冲突，可双领</span>
+    <span class="flag f-hot">限 1 台</span>
+  </div>
+  <div class="item">
+    <span class="name"><a href="https://university.aliyun.com/">阿里云 · 云工开物</a></span>
+    <span class="desc">学生认证后可领权益，另有全模型 AI 通用抵扣券 50 元免费领、QoderWork 高校 3 个月 Pro 等热门活动</span>
+    <span class="how">学生认证</span>
+  </div>
+  <div class="item">
+    <span class="name">阿里云 · 学生算力包</span>
+    <span class="desc">三档：练手包 150 元/月、毕设包 850 元/6月、科创包 2000 元/6月；需个人实名 + 中国内地高校学生认证，同一时间持有一个</span>
+    <span class="how">按需选档</span>
+  </div>
+
+  <!-- ===== 设计创作 ===== -->
+  <div class="sec-title">设计 / 创作 <span class="en">Create</span><span class="rule"></span></div>
+
+  <div class="item">
+    <span class="name">Autodesk 教育版</span>
+    <span class="desc">Maya、3ds Max 等免费（3 年授权期），做三渲二、建模正好用</span>
+    <span class="flag f-hot">对你的 Blender 工作流是好补充</span>
+  </div>
+  <div class="item">
+    <span class="name">Adobe 教育优惠</span>
+    <span class="desc">全家桶学生折扣价（不是免费），需要时再评估</span>
+    <span class="how">学生认证</span>
+  </div>
+  <div class="item">
+    <span class="name">Apple 教育优惠</span>
+    <span class="desc">Mac/iPad 学生价，返校季（约 7-9 月）常送 AirPods；你有鸿蒙平板，看未来需求</span>
+    <span class="how">学信网验证</span>
+  </div>
+
+  <!-- ===== 其他 ===== -->
+  <div class="sec-title">其他 <span class="en">Misc</span><span class="rule"></span></div>
+
+  <div class="item">
+    <span class="name">Apple Music 学生版</span>
+    <span class="desc">每月 5 元（原价 10 元），学生验证一次管一年</span>
+    <span class="flag f-warn">洛天依八年听众可以考虑</span>
+  </div>
+  <div class="item">
+    <span class="name">GitHub 认证考试券</span>
+    <span class="desc">GitHub Foundations / Copilot 认证（$99 价值）偶尔对学生放券，留意 education.github.com 公告</span>
+    <span class="how">关注公告</span>
+  </div>
+  <div class="item">
+    <span class="name"><a href="https://github.com/wowlusitong/awesome-education">awesome-education</a></span>
+    <span class="desc">GitHub 上的学生福利汇总仓库，长期更新的白嫖清单，值得收藏</span>
+    <span class="how">收藏</span>
+  </div>
+
+  <div class="tip">
+    <div class="t-head">HANAKO 的备注</div>
+    <p>1. 学生认证工具：大部分用学校邮箱即可，部分要学信网或第三方认证（SheerID），提前把学校邮箱激活。</p>
+    <p>2. 你已经薅了腾讯云校园计划，剩下的优先级：GitHub Pack → JetBrains → 阿里云算力包/券 → 免费域名（配合域名计划）。</p>
+    <p>3. 福利页我会在周报任务里顺带检查有没有变动，发现值得更新的就改。</p>
+  </div>
+
+  <a class="back" href="index.html">← 返回箱庭</a>
+</div>
+
+</body>
+</html>
