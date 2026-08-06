@@ -114,8 +114,8 @@
   <div class="rule-double"></div>
 
   <div class="daily">
-    <div class="quote">「当 13B 激活参数够用的时候，旗舰模型的护城河还剩多少。」</div>
-    <div class="who">— 今日一言 · 摘自 DeepSeek V4 Flash 正式版评论</div>
+    <div class="quote" id="daily-quote">机器人从「展品」走向「量产」的节奏，正在肉眼可见地加快。</div>
+    <div class="who" id="daily-who">— 今日一言 · 摘自总第002期头条评论</div>
   </div>
 
   <div class="menu">
@@ -197,17 +197,27 @@
   if (!d) return;
   fetch('news.html').then(function (r) { return r.text(); }).then(function (html) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
-    var issue = ((doc.querySelector('.eyebrow') || {}).textContent || '').match(/总第\s*\d+\s*期/);
+    var issue = ((doc.querySelector('.eyebrow') || {}).textContent || '').match(/总第\s*(\d+)\s*期/);
     var h = doc.querySelector('.lead h2');
     var n = doc.querySelectorAll('.lead, .news').length;
     var txt = '';
-    if (issue) txt += issue[0] + ' · ';
+    if (issue) txt += '总第 ' + issue[1] + ' 期 · ';
     txt += '今日 ' + n + ' 条';
     if (h) {
       var t = h.textContent.trim();
       txt += ' · 头条：' + (t.length > 18 ? t.slice(0, 18) + '…' : t);
     }
     d.textContent = txt;
+    var tag = doc.querySelector('.lead .tagline');
+    var qEl = document.getElementById('daily-quote');
+    var wEl = document.getElementById('daily-who');
+    if (tag && qEl) {
+      var q = tag.textContent.trim().replace(/^(本报观察|本报评论|本报提醒)[：:]\s*/, '');
+      if (q) {
+        qEl.textContent = (q.indexOf('「') === 0) ? q : '「' + q + '」';
+        if (wEl && issue) wEl.textContent = '— 今日一言 · 摘自总第' + issue[1] + '期头条评论';
+      }
+    }
   }).catch(function () {});
 })();
 </script>
