@@ -125,7 +125,7 @@
       <span class="no">壹</span>
       <span class="info">
         <span class="t">每日新闻速览</span>
-        <span class="d">总第 001 期 · 今日 16 条 · 头条：DeepSeek V4 Flash 正式版</span>
+        <span class="d" id="news-desc">总第 002 期 · 今日 15 条 · 头条：越疆鹿萌人形机器人</span>
       </span>
       <span class="state live">今日已发</span>
       <span class="arrow">→</span>
@@ -190,6 +190,27 @@
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  var d = document.getElementById('news-desc');
+  if (!d) return;
+  fetch('news.html').then(function (r) { return r.text(); }).then(function (html) {
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var issue = ((doc.querySelector('.eyebrow') || {}).textContent || '').match(/总第\s*\d+\s*期/);
+    var h = doc.querySelector('.lead h2');
+    var n = doc.querySelectorAll('.lead, .news').length;
+    var txt = '';
+    if (issue) txt += issue[0] + ' · ';
+    txt += '今日 ' + n + ' 条';
+    if (h) {
+      var t = h.textContent.trim();
+      txt += ' · 头条：' + (t.length > 18 ? t.slice(0, 18) + '…' : t);
+    }
+    d.textContent = txt;
+  }).catch(function () {});
+})();
+</script>
 
 </body>
 </html>
